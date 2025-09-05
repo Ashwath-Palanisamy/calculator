@@ -112,7 +112,7 @@ class _MyAppState extends State<MyApp> {
                         TextButton(
                           onPressed: () {
                             setState(() {
-                              value += '';
+                              value = '';
                             });
                           },
                           child: Text('C', style: TextStyle(fontSize: 40)),
@@ -192,11 +192,19 @@ class _MyAppState extends State<MyApp> {
                           child: Text('9', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              value += '*';
+                            });
+                          },
                           child: Text('*', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              value += '%';
+                            });
+                          },
                           child: Text('%', style: TextStyle(fontSize: 40)),
                         ),
                       ],
@@ -205,23 +213,43 @@ class _MyAppState extends State<MyApp> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              value += '.';
+                            });
+                          },
                           child: Text('.', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              value += '0';
+                            });
+                          },
                           child: Text('0', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              value += '(';
+                            });
+                          },
                           child: Text('(', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              value += ')';
+                            });
+                          },
                           child: Text(')', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              value += '=';
+                            });
+                          },
                           child: Text('=', style: TextStyle(fontSize: 40)),
                         ),
                       ],
@@ -234,19 +262,5 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
     );
-  }
-}
-
-class One extends StatefulWidget {
-  const One({super.key});
-
-  @override
-  State<One> createState() => _OneState();
-}
-
-class _OneState extends State<One> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }

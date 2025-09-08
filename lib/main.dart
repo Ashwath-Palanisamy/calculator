@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
-import 'package:math_expressions/math_expressions.dart' as me;
+import 'package:function_tree/function_tree.dart' as ft;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,6 +35,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  void evaluate() {
+    final result = value.interpret();
+    setState(() {
+      value = result.toString();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -246,9 +253,7 @@ class _MyAppState extends State<MyApp> {
                         ),
                         TextButton(
                           onPressed: () {
-                            setState(() {
-                              value += '=';
-                            });
+                            evaluate();
                           },
                           child: Text('=', style: TextStyle(fontSize: 40)),
                         ),

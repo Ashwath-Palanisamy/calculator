@@ -25,6 +25,7 @@ void main() async {
   runApp(MyApp());
 }
 
+final ScrollController _scrollController = ScrollController();
 String value = '';
 
 class MyApp extends StatefulWidget {
@@ -64,6 +65,7 @@ class _MyAppState extends State<MyApp> {
                 radius: Radius.circular(4),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
+                  controller: _scrollController,
                   reverse: true,
                   child: Text(
                     value,

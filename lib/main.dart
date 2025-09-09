@@ -37,10 +37,14 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   void evaluate() {
-    final result = value.interpret();
-    setState(() {
-      value = result.toString();
-    });
+    try{
+      final result = value.interpret();
+      setState(() {
+        value = result.toString();
+      });
+    }
+  }catch {
+
   }
 
   @override

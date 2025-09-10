@@ -37,14 +37,22 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   void evaluate() {
-    try{
+    try {
       final result = value.interpret();
       setState(() {
         value = result.toString();
       });
+    } catch (e) {
+      setState(() {
+        value = "Error";
+      });
     }
-  }catch {
-
+  }
+  void appendValue(String input) {
+    setState(() {
+      if (value == "Error") value = '';
+      value += input;
+    });
   }
 
   @override
@@ -91,43 +99,23 @@ class _MyAppState extends State<MyApp> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += '1';
-                            });
-                          },
+                          onPressed: () => appendValue('1'),
                           child: Text('1', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += '2';
-                            });
-                          },
+                          onPressed: () => appendValue('2'),
                           child: Text('2', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += '3';
-                            });
-                          },
+                          onPressed: () => appendValue('3'),
                           child: Text('3', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += '+';
-                            });
-                          },
+                          onPressed: () => appendValue('+'),
                           child: Text('+', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value = '';
-                            });
-                          },
+                          onPressed: () => appendValue('C'),
                           child: Text('C', style: TextStyle(fontSize: 40)),
                         ),
                       ],
@@ -136,43 +124,23 @@ class _MyAppState extends State<MyApp> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += '4';
-                            });
-                          },
+                          onPressed: () => appendValue('4'),
                           child: Text('4', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += '5';
-                            });
-                          },
+                          onPressed: () => appendValue('5'),
                           child: Text('5', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += '6';
-                            });
-                          },
+                          onPressed: () => appendValue('6'),
                           child: Text('6', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += '-';
-                            });
-                          },
+                          onPressed: () => appendValue('-'),
                           child: Text('-', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += "/";
-                            });
-                          },
+                          onPressed: () => appendValue('/'),
                           child: Text('/', style: TextStyle(fontSize: 40)),
                         ),
                       ],
@@ -181,43 +149,23 @@ class _MyAppState extends State<MyApp> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += "7";
-                            });
-                          },
+                          onPressed: () => appendValue('7'),
                           child: Text('7', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += "8";
-                            });
-                          },
+                          onPressed: () => appendValue('8'),
                           child: Text('8', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += "9";
-                            });
-                          },
+                          onPressed: () => appendValue('9'),
                           child: Text('9', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += '*';
-                            });
-                          },
+                          onPressed: () => appendValue('*'),
                           child: Text('*', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += '%';
-                            });
-                          },
+                          onPressed: () => appendValue('%'),
                           child: Text('%', style: TextStyle(fontSize: 40)),
                         ),
                       ],
@@ -226,35 +174,19 @@ class _MyAppState extends State<MyApp> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += '.';
-                            });
-                          },
+                          onPressed: () => appendValue('.'),
                           child: Text('.', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += '0';
-                            });
-                          },
+                          onPressed: () => appendValue('0'),
                           child: Text('0', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += '(';
-                            });
-                          },
+                          onPressed: () => appendValue('('),
                           child: Text('(', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              value += ')';
-                            });
-                          },
+                          onPressed: () => appendValue(')'),
                           child: Text(')', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(

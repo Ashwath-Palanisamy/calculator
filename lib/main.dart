@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:function_tree/function_tree.dart' as ft;
+import 'package:flutter/services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,11 +49,76 @@ class _MyAppState extends State<MyApp> {
       });
     }
   }
+
   void appendValue(String input) {
     setState(() {
       if (value == "Error") value = '';
       value += input;
     });
+  }
+
+  bool _onKey(KeyEvent event) {
+    if (event is KeyDownEvent) {
+      final key = event.logicalKey;
+      final isShiftPressed =
+          HardwareKeyboard.instance.logicalKeysPressed.contains(
+            LogicalKeyboardKey.shiftLeft,
+          ) ||
+          HardwareKeyboard.instance.logicalKeysPressed.contains(
+            LogicalKeyboardKey.shiftRight,
+          );
+
+      final shiftedMap = {
+        '1': '!',
+        '2': '@',
+        '3': '#',
+        '4': r'$',
+        '5': '%',
+        '6': '^',
+        '7': '&',
+        '8': '*',
+        '9': '(',
+        '0': ')',
+        '=': '+',
+      };
+
+      final label = key.keyLabel;
+
+      if (key == LogicalKeyboardKey.enter) {
+        evaluate();
+      } else if (key == LogicalKeyboardKey.backspace) {
+        setState(() {
+          if (value.isNotEmpty) {
+            value = value.substring(0, value.length - 1);
+          }
+        });
+      } else if (label == 'C') {
+        setState(() {
+          value = '';
+        });
+      } else {
+        String input = label;
+        if (isShiftPressed && shiftedMap.containsKey(label)) {
+          input = shiftedMap[label]!;
+        }
+        if ('0123456789+-*/.%()'.contains(input)) {
+          appendValue(input);
+        }
+      }
+    }
+    return false;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    HardwareKeyboard.instance.addHandler(_onKey);
+  }
+
+  @override
+  void dispose() {
+    HardwareKeyboard.instance.removeHandler(_onKey);
+    super.dispose();
   }
 
   @override
@@ -62,7 +128,7 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           backgroundColor: Colors.blue[400],
           leading: Icon(Icons.calculate_rounded),
-          title: Text('Calucaluter'),
+          title: Text('Calucalutor'),
           centerTitle: true,
         ),
         body: Column(
@@ -115,7 +181,11 @@ class _MyAppState extends State<MyApp> {
                           child: Text('+', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(
-                          onPressed: () => appendValue('C'),
+                          onPressed: () {
+                            setState(() {
+                              value = "";
+                            });
+                          },
                           child: Text('C', style: TextStyle(fontSize: 40)),
                         ),
                       ],

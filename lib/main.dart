@@ -1,28 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:window_manager/window_manager.dart';
+import "package:flutter/material.dart";
 import 'package:function_tree/function_tree.dart' as ft;
 import 'package:flutter/services.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  await windowManager.ensureInitialized();
-
-  WindowOptions options = WindowOptions(
-    size: Size(500, 500),
-    center: true,
-    title: 'Calculator',
-    backgroundColor: Colors.transparent,
-    skipTaskbar: false,
-    fullScreen: false,
-  );
-
-  windowManager.waitUntilReadyToShow(options, () async {
-    await windowManager.setResizable(false);
-    await windowManager.show();
-    await windowManager.focus();
-  });
-
   runApp(MyApp());
 }
 
@@ -52,7 +32,7 @@ class _MyAppState extends State<MyApp> {
 
   void appendValue(String input) {
     setState(() {
-      if (value == "Error") value = '';
+      if (value == "Error" || value=="NaN")  value = '';
       value += input;
     });
   }

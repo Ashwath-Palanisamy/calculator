@@ -30,7 +30,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  window_manager: ^0.5.1
   function_tree: ^0.9.1
 
 

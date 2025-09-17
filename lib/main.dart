@@ -199,7 +199,7 @@ class _MyAppState extends State<MyApp> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextButton(
-                          onPressed: () => appendValue('7'),
+                          onPressed: () => appendValue('7')
                           child: Text('7', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(

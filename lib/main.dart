@@ -198,8 +198,8 @@ class _MyAppState extends State<MyApp> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TextButton(
-                          onPressed: () => appendValue('7')
+                         TextButton(
+                          onPressed: () => appendValue('7'),
                           child: Text('7', style: TextStyle(fontSize: 40)),
                         ),
                         TextButton(

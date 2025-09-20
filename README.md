@@ -1,16 +1,20 @@
 # calculator
-
 A new Flutter project.
 
-## Getting Started
+A calculator app made by me for learning flutter [learn by doing method]
 
-This project is a starting point for a Flutter application.
+## How to Download
 
-A few resources to get you started if this is your first Flutter project:
+Go to [Releases](https://github.com/Ashwath-Palanisamy/calculator/releases) and click on the one with latest tag
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+There download windows.zip or apk-release.apk
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### In windows
+Download the file and open the downloads folder
+then click on the file and click extract at the top and open the file
+click on the release file and run the website.exe
+
+if windows smartscreen blocked it click on more info and click run anyway
+
+### In Android
+[Tutorial will be made soon] 

@@ -15,6 +15,3 @@ then click on the file and click extract at the top and open the file
 click on the release file and run the website.exe
 
 if windows smartscreen blocked it click on more info and click run anyway
-
-### In Android
-[Tutorial will be made soon] 
